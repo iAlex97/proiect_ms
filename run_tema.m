@@ -1,6 +1,8 @@
+clear all;
+
 model = 'tema';
 
-l1 = 1/4;
+l1 = 2/4;
 l2 = 3/4;
 
 q = 1000;			% kg/m^3
@@ -11,6 +13,12 @@ A2 = 0.06;			% m^2
 A3 = 0.06;			% m^2
 A4 = 0.06;			% m^2
 AT = 0.1273;		% m^2
+
+cih1 = 1;
+cih2 = 1;
+cih3 = 1;
+cih4 = 1;
+cih  = 1;
 
 a1 = 1.31 / 10^4;	% m^2
 a2 = 1.51 / 10^4;	% m^2
@@ -23,6 +31,25 @@ Q2 = 4;				% m^3/s
 kp = 0.5 / 10^4;	% m^3/(s*V)
 
 load_system(model)
-sim(model,'StartTime','0','StopTime','50','FixedStep','0.2')
+res = sim(model,'StartTime','0','StopTime','1000','FixedStep','0.2');
+close_system(model)
 
-plot(dh2.Time, dh2.Data)
+h2 = res.dh2;
+h4 = res.dh4;
+
+
+figure(1)
+
+subplot(2, 1, 1);
+plot(h2.Time, h2.Data)
+
+title('h2(t)');
+xlabel('Timp (s)')
+ylabel('Inaltime (m)');
+
+subplot(2, 1, 2);
+plot(h4.Time, h4.Data)
+
+title('h4(t)');
+xlabel('Timp (s)')
+ylabel('Inaltime (m)');
