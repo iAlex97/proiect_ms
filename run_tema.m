@@ -23,6 +23,6 @@ Q2 = 4;				% m^3/s
 kp = 0.5 / 10^4;	% m^3/(s*V)
 
 load_system(model)
-sim(model)
+sim(model,'StartTime','0','StopTime','50','FixedStep','0.2')
 
-plot(simout.Time, simout.Data)
+plot(dh2.Time, dh2.Data)
