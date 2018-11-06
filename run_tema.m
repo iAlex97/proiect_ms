@@ -31,7 +31,7 @@ Q2 = 4;				% m^3/s
 kp = 0.5 / 10^4;	% m^3/(s*V)
 
 load_system(model)
-res = sim(model,'StartTime','0','StopTime','200','FixedStep','0.2');
+res = sim(model,'StartTime','0','StopTime','500','FixedStep','0.2');
 close_system(model)
 
 h2 = res.dh2;
