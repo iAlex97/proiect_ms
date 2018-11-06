@@ -34,8 +34,8 @@ load_system(model)
 res = sim(model,'StartTime','0','StopTime','500','FixedStep','0.2');
 close_system(model)
 
-h2 = res.dh2;
-h4 = res.dh4;
+h2 = res.h2;
+h4 = res.h4;
 
 
 figure(1)
