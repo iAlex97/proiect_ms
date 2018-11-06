@@ -34,8 +34,41 @@ close_system(model_name)
 h2 = res.h2;
 h4 = res.h4;
 
-
 figure(1)
+
+ax = axes();
+xlim(ax, [0 1]);
+ylim(ax, [0 0.01]);
+view(ax, 2)
+
+title('Nivel h2');
+
+hold on;
+for i=1:length(h4.Data);
+	ydata = h4.Data(i);	
+	line([0 1],[ydata ydata])
+	pause(.1);
+end
+hold off;
+
+figure(2)
+
+ax = axes();
+xlim(ax, [0 1]);
+ylim(ax, [0 0.01]);
+view(ax, 2)
+
+title('Nivel h2');
+
+hold on;
+for i=1:length(h2.Data);
+	ydata = h2.Data(i);	
+	line([0 1],[ydata ydata])
+	pause(.1);
+end
+hold off;
+
+figure(3)
 
 subplot(2, 1, 1);
 plot(h2.Time, h2.Data)
