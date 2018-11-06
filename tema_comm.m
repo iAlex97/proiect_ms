@@ -31,44 +31,16 @@ load_system(model_name)
 res = sim(model_name,'StartTime','0','StopTime','500','FixedStep','0.2');
 close_system(model_name)
 
+h = res.h;
+h1 = res.h1;
 h2 = res.h2;
+h3 = res.h3;
 h4 = res.h4;
 
-figure(1)
+animate_levels(h.Data, h1.Data, h2.Data, h3.Data, h4.Data);
 
-ax = axes();
-xlim(ax, [0 1]);
-ylim(ax, [0 0.01]);
-view(ax, 2)
-
-title('Nivel h2');
-
-hold on;
-for i=1:length(h4.Data);
-	ydata = h4.Data(i);	
-	line([0 1],[ydata ydata])
-	pause(.1);
-end
-hold off;
 
 figure(2)
-
-ax = axes();
-xlim(ax, [0 1]);
-ylim(ax, [0 0.01]);
-view(ax, 2)
-
-title('Nivel h2');
-
-hold on;
-for i=1:length(h2.Data);
-	ydata = h2.Data(i);	
-	line([0 1],[ydata ydata])
-	pause(.1);
-end
-hold off;
-
-figure(3)
 
 subplot(2, 1, 1);
 plot(h2.Time, h2.Data)
