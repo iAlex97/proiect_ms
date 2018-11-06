@@ -14,10 +14,10 @@ A3 = 0.06;			% m^2
 A4 = 0.06;			% m^2
 AT = 0.1273;		% m^2
 
-cih1 = 1;
-cih2 = 1;
-cih3 = 1;
-cih4 = 1;
+cih1 = 0;
+cih2 = 0;
+cih3 = 0;
+cih4 = 0;
 cih  = 1;
 
 a1 = 1.31 / 10^4;	% m^2
@@ -31,7 +31,7 @@ Q2 = 4;				% m^3/s
 kp = 0.5 / 10^4;	% m^3/(s*V)
 
 load_system(model)
-res = sim(model,'StartTime','0','StopTime','1000','FixedStep','0.2');
+res = sim(model,'StartTime','0','StopTime','200','FixedStep','0.2');
 close_system(model)
 
 h2 = res.dh2;
