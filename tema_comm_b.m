@@ -29,6 +29,12 @@ for i=1:loop_len
 	out_arr2_data(1:out_data_len(i), i) = h2.Data;
 	out_arr4_data(1:out_data_len(i), i) = h4.Data;
 	out_arr_time(1:out_data_len(i), i)  = h.Time;
+
+	if (animation_enable == 1)
+		animate_levels(h.Data, h1.Data, h2.Data, h3.Data, h4.Data);
+	else
+		fprintf("Animatia este dezactivata.\n");
+	end
 end
 
 sHandle1 = subplot(2, 1, 1);
@@ -56,11 +62,5 @@ title(sHandle2, 'h4(t)');
 xlabel(sHandle2, 'Timp (s)')
 ylabel(sHandle2, 'Inaltime (m)');
 legend show;
-
-if (animation_enable == 1)
-	animate_levels(h.Data, h1.Data, h2.Data, h3.Data, h4.Data);
-else
-	fprintf("Animatia este dezactivata.\n");
-end
 
 close_system(model_name);

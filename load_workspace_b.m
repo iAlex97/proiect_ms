@@ -1,6 +1,9 @@
 l1 = 2/4;
 l2 = 3/4;
 
+amp_u1 = 1;			% Amplitudine intrare treapta
+amp_u2 = 1;			% Amplitudine intrare treapta
+
 q = 1000;			% kg/m^3
 g = 9.8; 			% m/s^2
 
