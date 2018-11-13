@@ -3,7 +3,7 @@ l2 = 3/4;
 
 amp_u1 = 1;			% Amplitudine intrare treapta
 amp_u2 = 1;			% Amplitudine intrare treapta
-u2 = linspace(10, 100, 10); % Valori pentru amplitudinea treptei intrarii u2
+u2 = linspace(4, 10, 10); % Valori pentru amplitudinea treptei intrarii u2
 
 q = 1000;			% kg/m^3
 g = 9.8; 			% m/s^2
