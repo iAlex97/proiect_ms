@@ -10,7 +10,7 @@ h3 = res.h3;
 h4 = res.h4;
 
 if (animation_enable == 1)
-	animate_levels(h.Data, h1.Data, h2.Data, h3.Data, h4.Data);
+	animate_levels(h.Data, h1.Data, h2.Data, h3.Data, h4.Data, A1, A2, A3, A4, AT);
 else
 	fprintf("Animatia este dezactivata.\n");
 end

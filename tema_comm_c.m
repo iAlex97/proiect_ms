@@ -11,7 +11,7 @@ h4_out_sett_arr = [];
 for i=1:loop_len
 	amp_u2 = u2(i);
 
-	res = sim(model_name,'StartTime','0','StopTime','500','FixedStep','0.2');
+	res = sim(model_name,'StartTime','0','StopTime','300','FixedStep','0.2');
 
 	h  = res.h;
 	h1 = res.h1;
@@ -37,7 +37,7 @@ for i=1:loop_len
 	end
 
 	if (animation_enable == 1)
-		animate_levels(h.Data, h1.Data, h2.Data, h3.Data, h4.Data);
+		animate_levels(h.Data, h1.Data, h2.Data, h3.Data, h4.Data, A1, A2, A3, A4, AT);
 	else
 		fprintf("Animatia este dezactivata.\n");
 	end
