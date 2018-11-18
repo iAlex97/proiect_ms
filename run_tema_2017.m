@@ -9,5 +9,8 @@ model_name = 'tema_2017';
 % run('load_workspace_b');	% Incarcat variabile in workspace
 % run('tema_comm_b.m');
 
-run('load_workspace_c');	% Incarcat variabile in workspace
-run('tema_comm_c.m');
+% run('load_workspace_c');	% Incarcat variabile in workspace
+% run('tema_comm_c.m');
+
+run('load_workspace_d');	% Incarcat variabile in workspace
+run('tema_comm_d.m');
