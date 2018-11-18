@@ -4,6 +4,14 @@ l2 = 3/4;
 amp_u1 = 4;		% Amplitudine intrare treapta
 amp_u2 = 4;		% Amplitudine intrare treapta
 
+u1_time = 0:time_step:time_count;
+u1_data = ones(1, length(u1_time)) * amp_u1;
+u1 = [u1_time' u1_data'];
+
+u2_time = 0:time_step:time_count;
+u2_data = ones(1, length(u2_time)) * amp_u2;
+u2 = [u2_time' u2_data'];
+
 q = 1000;			% kg/m^3
 g = 9.8; 			% m/s^2
 

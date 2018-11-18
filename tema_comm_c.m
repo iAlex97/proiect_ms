@@ -4,12 +4,16 @@ load_system(model_name);
 
 figure(4);
 
-loop_len = length(u2);
+loop_len = length(amp_var_u2);
 h2_out_sett_arr = [];
 h4_out_sett_arr = [];
 
 for i=1:loop_len
-	amp_u2 = u2(i);
+	amp_u2 = amp_var_u2(i);
+
+	u2_time = 0:time_step:time_count;
+	u2_data = ones(1, length(u2_time)) * amp_u2;
+	u2 = [u2_time' u2_data'];
 
 	res = sim(model_name,'StartTime','0','StopTime','300','FixedStep','0.2');
 
@@ -44,8 +48,8 @@ for i=1:loop_len
 end
 
 sHandle1 = subplot(2, 1, 1);
-stem(u2, h2_out_sett_arr);
-cftool(u2, h2_out_sett_arr);
+stem(amp_var_u2, h2_out_sett_arr);
+cftool(amp_var_u2, h2_out_sett_arr);
 
 title(sHandle1, 'h2(t)');
 xlabel(sHandle1, 'Amplitudine u_2');
@@ -53,8 +57,8 @@ ylabel(sHandle1, 'y_{stat}');
 legend show;
 
 sHandle2 = subplot(2, 1, 2);
-stem(u2, h4_out_sett_arr);
-cftool(u2, h4_out_sett_arr);
+stem(amp_var_u2, h4_out_sett_arr);
+cftool(amp_var_u2, h4_out_sett_arr);
 
 title(sHandle2, 'h4(t)');
 xlabel(sHandle2, 'Amplitudine u_2');

@@ -40,6 +40,6 @@ function [] = animate_levels(h_data, h1_data, h2_data, h3_data, h4_data, A1, A2,
 		ylim(sHandle5, [0 H_MAX]);
 		title(sHandle5, 'Nivel h');
 
-		pause(.1);
+		pause(.001);
 	end
 end

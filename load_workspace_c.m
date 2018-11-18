@@ -3,7 +3,15 @@ l2 = 3/4;
 
 amp_u1 = 1;			% Amplitudine intrare treapta
 amp_u2 = 1;			% Amplitudine intrare treapta
-u2 = linspace(0.01, 3, 30); % Valori pentru amplitudinea treptei intrarii u2
+amp_var_u2 = linspace(1, 3, 30); % Valori pentru amplitudinea treptei intrarii u2
+
+u1_time = 0:time_step:time_count;
+u1_data = ones(1, length(u1_time)) * amp_u1;
+u1 = [u1_time' u1_data'];
+
+u2_time = 0:time_step:time_count;
+u2_data = ones(1, length(u2_time)) * amp_u2;
+u2 = [u2_time' u2_data'];
 
 q = 1000;			% kg/m^3
 g = 9.8; 			% m/s^2

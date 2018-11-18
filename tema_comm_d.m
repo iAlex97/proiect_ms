@@ -4,13 +4,17 @@ load_system(model_name);
 
 figure(5);
 
-loop_len = length(u2);
+loop_len = length(amp_var_u2);
 h2_out_sett_arr = [];
 h4_out_sett_arr = [];
 h_all_out_sett_lin_arr = [];
 
 for i=1:loop_len
-	amp_u2 = u2(i);
+	amp_u2 = amp_var_u2(i);
+
+	u2_time = 0:time_step:time_count;
+	u2_data = ones(1, length(u2_time)) * amp_u2;
+	u2 = [u2_time' u2_data'];
 
 	res = sim(model_name,'StartTime','0','StopTime','300','FixedStep','0.2');
 
@@ -19,9 +23,6 @@ for i=1:loop_len
 	h2 = res.h2;
 	h3 = res.h3;
 	h4 = res.h4;
-
-	u1 = res.u1;
-	u2 = res.u2;
 
 	res2 = stepinfo(h2.Data, h2.Time);
 	res4 = stepinfo(h4.Data, h4.Time);
@@ -45,9 +46,9 @@ for i=1:loop_len
 			% stable_index(end + 1) = j;
 			[A, B, C, D] = linmod(model_name, ...
 					[h1.Data(j) ; h2.Data(j) ; h3.Data(j) ; h4.Data(j)], ...
-					[u1.Data(j); u2.Data(j)]);
+					[u1_data(j); u2_data(j)]);
 			h_all_out_sett_lin_arr(end + 1) = ...
-					lsim([A, B, C, D], [u1.Data(j); u2.Data(j)], h4.Time);
+					lsim([A, B, C, D], [u1_data(j); u2_data(j)], h4.Time);
 			break;
 		end
 	end
@@ -60,8 +61,8 @@ for i=1:loop_len
 end
 
 sHandle1 = subplot(2, 1, 1);
-stem(u2, h2_out_sett_arr);
-cftool(u2, h2_out_sett_arr);
+stem(amp_var_u2, h2_out_sett_arr);
+cftool(amp_var_u2, h2_out_sett_arr);
 
 title(sHandle1, 'h2(t)');
 xlabel(sHandle1, 'Amplitudine u_2');
@@ -69,8 +70,8 @@ ylabel(sHandle1, 'y_{stat}');
 legend show;
 
 sHandle2 = subplot(2, 1, 2);
-stem(u2, h4_out_sett_arr);
-cftool(u2, h4_out_sett_arr);
+stem(amp_var_u2, h4_out_sett_arr);
+cftool(amp_var_u2, h4_out_sett_arr);
 
 title(sHandle2, 'h4(t)');
 xlabel(sHandle2, 'Amplitudine u_2');
