@@ -45,9 +45,9 @@ for i=1:loop_len
 			% stable_index(end + 1) = j;
 			[A, B, C, D] = linmod(model_name, ...
 					[h1.Data(j) ; h2.Data(j) ; h3.Data(j) ; h4.Data(j)], ...
-					[u1; u2]);
+					[u1.Data(j); u2.Data(j)]);
 			h_all_out_sett_lin_arr(end + 1) = ...
-					lsim([A, B, C, D], [u1; u2], h4.Time);
+					lsim([A, B, C, D], [u1.Data(j); u2.Data(j)], h4.Time);
 			break;
 		end
 	end
