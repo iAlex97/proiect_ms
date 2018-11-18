@@ -3,7 +3,7 @@ l2 = 3/4;
 
 amp_u1 = 1;			% Amplitudine intrare treapta
 amp_u2 = 1;			% Amplitudine intrare treapta
-u2 = linspace(4, 10, 10); % Valori pentru amplitudinea treptei intrarii u2
+u2 = linspace(0.01, 3, 30); % Valori pentru amplitudinea treptei intrarii u2
 
 q = 1000;			% kg/m^3
 g = 9.8; 			% m/s^2
@@ -30,4 +30,4 @@ step1 = 2; 			% V
 step2 = 1;			% V
 kp = 0.5 / 10^4;	% m^3/(s*V)
 
-animation_enable = 1; % porneste animatiile de nivel ale rezervoarelor
+animation_enable = 0; % porneste animatiile de nivel ale rezervoarelor
