@@ -3,6 +3,11 @@ close all;
 load_system(model_name);
 
 loop_len = length(amp_var_u2);
+h2_out_sett_arr = [];
+h4_out_sett_arr = [];
+error_sys_2 = [];
+error_sys_4 = [];
+
 for i=1:loop_len
 	amp_u2 = amp_var_u2(i);
 
@@ -31,31 +36,25 @@ for i=1:loop_len
 			linsys = ss(A, B, C, D);
 			out = lsim(linsys, [u1_data; u2_data]', u1_time');
 
-			ti = linspace(0, 300, 300);
-			
-			nonlinear_out_2 = interp1(h2.Time, h2.Data, ti);
-			linear_out_2 = interp1(u2_time, out(:, 3), ti);
-			
-			figure(1);
-			shandle1 = subplot(1, 1, 1);
+			ti = linspace(1, 300, 300);
 
-			hold on;
-			plot(shandle1, ti, nonlinear_out_2, 'r');
-			plot(shandle1, ti, linear_out_2, 'g');
-			hold off;
-			
-			nonlinear_out_4 = interp1(h4.Time, h4.Data, ti);
+			% why 2 ?????
+			nonlinear_out_2 = interp1(h2.Time, h2.Data * 2, ti);
+			linear_out_2 = interp1(u2_time, out(:, 3), ti);
+
+			% why 2 ?????
+			nonlinear_out_4 = interp1(h4.Time, h4.Data * 2, ti);
 			linear_out_4 = interp1(u2_time, out(:, 5), ti);
+
+			error_sys_2(end + 1) = ...
+					norm((linear_out_2 - nonlinear_out_2) ./ nonlinear_out_2);
 			
-			figure(2);
-			shandle2 = subplot(1, 1, 1);
-			
-			hold on;
-			plot(shandle2, ti, nonlinear_out_4, 'r');
-			plot(shandle2, ti, linear_out_4, 'b');
-			hold off;
+			error_sys_4(end + 1) = ...
+					norm((linear_out_4 - nonlinear_out_4) ./ nonlinear_out_4);
 			
 			pause(.1);
+			% out
+			% h_all_out_sett_lin_arr(end + 1) = out;
 			break;
 		end
 	end
@@ -68,5 +67,30 @@ for i=1:loop_len
 		fprintf("Animatia este dezactivata.\n");
 	end
 end
+
+figure(1);
+hold on;
+plot(amp_var_u2, error_sys_2);
+plot(amp_var_u2, error_sys_4);
+hold off;
+
+% sHandle1 = subplot(2, 1, 1);
+% stem(amp_var_u2, h2_out_sett_arr);
+% cftool(amp_var_u2, h2_out_sett_arr);
+
+% title(sHandle1, 'h2(t)');
+% xlabel(sHandle1, 'Amplitudine u_2');
+% ylabel(sHandle1, 'y_{stat}');
+% legend show;
+
+% sHandle2 = subplot(2, 1, 2);
+% stem(amp_var_u2, h4_out_sett_arr);
+% cftool(amp_var_u2, h4_out_sett_arr);
+
+% title(sHandle2, 'h4(t)');
+% xlabel(sHandle2, 'Amplitudine u_2');
+% ylabel(sHandle2, 'y_{stat}');
+% legend show;
+
 
 close_system(model_name);
