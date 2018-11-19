@@ -44,9 +44,10 @@ for i=1:loop_len
 	for j=1:length(h4.Data)
 		if (h4.Time(j) >= res4.SettlingTime && h2.Time(j) >= res2.SettlingTime)
 			% stable_index(end + 1) = j;
-			[A, B, C, D] = linmod(model_name, ...
-					[h1.Data(j) ; h2.Data(j) ; h3.Data(j) ; h4.Data(j)], ...
-					[u1_data(j); u2_data(j)]);
+			x = Simulink.BlockDiagram.getInitialState(model_name);
+			[A, B, C, D] = linmod(model_name, x, ...
+					[double(u1_data(j)); double(u2_data(j))]);
+			
 			h_all_out_sett_lin_arr(end + 1) = ...
 					lsim([A, B, C, D], [u1_data(j); u2_data(j)], h4.Time);
 			break;
