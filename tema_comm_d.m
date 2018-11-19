@@ -43,6 +43,10 @@ for i=1:loop_len
 			plot(shandle1, ti, nonlinear_out_2, 'r');
 			plot(shandle1, ti, linear_out_2, 'g');
 			hold off;
+
+			title(shandle1, 'y2');
+			legend('original', 'linear');
+
 			
 			nonlinear_out_4 = interp1(h4.Time, h4.Data, ti);
 			linear_out_4 = interp1(u2_time, out(:, 5), ti);
@@ -51,9 +55,13 @@ for i=1:loop_len
 			shandle2 = subplot(1, 1, 1);
 			
 			hold on;
-			plot(shandle2, ti, nonlinear_out_4, 'r');
-			plot(shandle2, ti, linear_out_4, 'b');
+			plot(shandle2, ti, nonlinear_out_4, 'r', 'DisplayName', 'original');
+			plot(shandle2, ti, linear_out_4, 'b', 'DisplayName', 'linear aprox');
 			hold off;
+
+			title(shandle2, 'y4');
+			legend('original', 'linear');
+
 			
 			pause(.1);
 			break;

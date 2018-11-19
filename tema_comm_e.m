@@ -74,6 +74,8 @@ plot(amp_var_u2, error_sys_2);
 plot(amp_var_u2, error_sys_4);
 hold off;
 
+title('err');
+legend('err_{y2}', 'err_{y4}');
 % sHandle1 = subplot(2, 1, 1);
 % stem(amp_var_u2, h2_out_sett_arr);
 % cftool(amp_var_u2, h2_out_sett_arr);
