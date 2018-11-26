@@ -81,34 +81,18 @@ for i=1:loop_len
 	end
 end
 
-hold on;
-for j=1:loop_len
-	figure(1);
-	plot(amp_var_u2, error_sys_2(:, j), 'r');
-	plot(amp_var_u2, error_sys_4(:, j), 'g');
+for i=1:loop_len
+	for j=1:loop_len
+		keep_j = true
+		for k=1:loop_len
+			if (error_sys_2(k, j) <= error_sys_2(k, j) and k ~= i)
+				keep_j = false
+			end
+		end
+		if (keep_j)
+			% keep_j here
+		end
+	end
 end
-hold off;
-
-
-% title('err');
-% legend('err_{y2}', 'err_{y4}');
-% sHandle1 = subplot(2, 1, 1);
-% stem(amp_var_u2, h2_out_sett_arr);
-% cftool(amp_var_u2, h2_out_sett_arr);
-
-% title(sHandle1, 'h2(t)');
-% xlabel(sHandle1, 'Amplitudine u_2');
-% ylabel(sHandle1, 'y_{stat}');
-% legend show;
-
-% sHandle2 = subplot(2, 1, 2);
-% stem(amp_var_u2, h4_out_sett_arr);
-% cftool(amp_var_u2, h4_out_sett_arr);
-
-% title(sHandle2, 'h4(t)');
-% xlabel(sHandle2, 'Amplitudine u_2');
-% ylabel(sHandle2, 'y_{stat}');
-% legend show;
-
 
 close_system(model_name);

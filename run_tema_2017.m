@@ -17,5 +17,11 @@ time_count = 300;
 % run('load_workspace_d');	% Incarcat variabile in workspace
 % run('tema_comm_d.m');
 
-run('load_workspace_e');	% Incarcat variabile in workspace
-run('tema_comm_e.m');
+% run('load_workspace_e');	% Incarcat variabile in workspace
+% run('tema_comm_e.m');
+
+run('load_workspace_f');	% Incarcat variabile in workspace
+run('tema_comm_f.m');
+
+% run('load_workspace_g');	% Incarcat variabile in workspace
+% run('tema_comm_g.m');
