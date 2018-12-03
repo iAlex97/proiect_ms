@@ -105,6 +105,7 @@ end
 out_1 = [];
 out_2 = [];
 last_i = 1;
+last_x = [cih cih1 cih2 cih3 cih4];
 for it=1:length(j_queue)
 	j = j_queue(it);
 	t = time_at(j);
@@ -123,7 +124,8 @@ for it=1:length(j_queue)
 		current_u2_data(end + 1) = u2_data(last_i);
 		last_i = last_i + 1;
 	end
-	out = lsim(linsys{j}, [current_u1_data; current_u2_data]', current_time', state{i});
+	[out, last_t, last_x] = lsim(linsys{j}, [current_u1_data; current_u2_data]', ...
+			current_time', last_x(end, :));
 
 	out_1 = [out_1; out(:, 3)];
 	out_2 = [out_2; out(:, 5)];
@@ -146,7 +148,8 @@ while (last_i <= length(u1_time))
 	last_i = last_i + 1;
 end
 
-out = lsim(linsys{j}, [current_u1_data; current_u2_data]', current_time', state{i});
+out = lsim(linsys{j}, [current_u1_data; current_u2_data]', ...
+		current_time', [last_x(end, :)]);
 
 % don't  really know why but I missed an element
 out_1 = [out_1; out(:, 3)];
