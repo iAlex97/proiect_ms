@@ -189,4 +189,10 @@ hold off;
 title(shandle2, 'y4');
 legend('original', 'linear');
 
+fun = @(i) abs(nonlinear_out_2(ceil(i)) - partial_linear_out_2(ceil(i)));
+quad(fun, ti(1), ti(end))
+
+fun = @(i) abs(nonlinear_out_4(ceil(i)) - partial_linear_out_4(ceil(i)));
+quad(fun, ti(1), ti(end))
+
 close_system(model_name);
