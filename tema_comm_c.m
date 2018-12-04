@@ -48,7 +48,7 @@ for i=1:loop_len
 end
 
 sHandle1 = subplot(2, 1, 1);
-stem(amp_var_u2, h2_out_sett_arr);
+plot(amp_var_u2, h2_out_sett_arr);
 cftool(amp_var_u2, h2_out_sett_arr);
 
 title(sHandle1, 'h2(t)');
@@ -57,7 +57,7 @@ ylabel(sHandle1, 'y_{stat}');
 legend show;
 
 sHandle2 = subplot(2, 1, 2);
-stem(amp_var_u2, h4_out_sett_arr);
+plot(amp_var_u2, h4_out_sett_arr);
 cftool(amp_var_u2, h4_out_sett_arr);
 
 title(sHandle2, 'h4(t)');

@@ -83,13 +83,14 @@ end
 
 for i=1:loop_len
 	for j=1:loop_len
-		keep_j = true
+		keep_j = true;
 		for k=1:loop_len
-			if (error_sys_2(k, j) <= error_sys_2(k, j) && k ~= i)
-				keep_j = false
+			if (error_sys_2(i, j) <= error_sys_2(k, j) && k ~= i)
+				keep_j = false;
 			end
 		end
 		if (keep_j)
+			fprintf("idx j: %d\n", j);
 			% keep_j here
 		end
 	end

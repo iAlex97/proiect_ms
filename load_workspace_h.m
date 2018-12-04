@@ -3,7 +3,7 @@ l2 = 3/4;
 
 amp_u1 = 2;			% Amplitudine intrare treapta
 amp_u2 = 4;			% Amplitudine intrare treapta
-amp_var_u2 = linspace(0.1, 10, 4); % Valori pentru amplitudinea treptei intrarii u2
+amp_var_u2 = linspace(0.1, 3, 15); % Valori pentru amplitudinea treptei intrarii u2
 
 u1_time = 0:time_step:time_count;
 u1_data = ones(1, length(u1_time)) * amp_u1;
