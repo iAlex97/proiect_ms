@@ -8,9 +8,9 @@
 
 \newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
 
-\title{Tema 3}
-\date{2018\\ Noiembrie}
-\author{Ionescu Alexandru Cristian - 333 AC}
+\title{Modelare și Simulare\\Temă laborator\\-\\Tema 2\\Instalație hidraulică cu patru rezervoare}
+\date{2018\\Decembrie}
+\author{Ionescu Alexandru Cristian\\Pangratie Andrei\\333 AC}
 
 \begin{document}
 
@@ -19,7 +19,12 @@
 \pagebreak
 
 
-\myparagraph {Problema 1}
+\myparagraph {Introducere}
+Simularea procesului este salvata cu versiunea MATLAB R2017a si pentru rularea ei se va folosi scriptul ``run_tema_2017.m''. Pentru a rula cu MATLAB R2018a se va folosi scriptul run_tema.m
+
+\myparagraph {Structura proiectului}
+Ficare subpunct are doua fisiere aferente (load_workspace_*.m si tema_comm_*.m)
+Fisierul ``animate_levels.m'' este folosit dupa fiecare simulare pentru a crea o reprezentare grafica a evolutiei nivelelor rezervoarelor cu apa.
 
 Consideram filtrul FIR de ordinul I:
 \begin{center}
@@ -28,262 +33,8 @@ $\displaystyle H( z) \ =\ 1-cz^{-1} ,\ c\ =re^{j\theta } ,\ \theta \in [ 0,\ \pi
 
 \subparagraph {Pentru:\ $\displaystyle \theta \ =\ \pi /3$}
 
-\begin{center}
-\includegraphics[width=1\textwidth]{1_1.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{1_2.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{1_3.eps}
-\end{center}
-
-Pe diagrama poli-zerouri, se observa ca modulul si defazajul zeroului corespund cu valorile alese pentru $r \ si \ \theta$
-
-\subparagraph {Pentru:\ $\displaystyle \theta \ =\ \pi /2$}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{1_4.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{1_5.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{1_6.eps}
-\end{center}
-
-Pe diagrama poli-zerouri, se observa ca modulul si defazajul zeroului corespund cu valorile alese pentru $r \ si \ \theta$
-
-\pagebreak
-\myparagraph {Problema 2}
-
-Consideram filtrul FIR de ordinul II:
-
-\begin{center}
-$\displaystyle H( z) \ =\ \left( 1-cz^{-1}\right)\left( 1-\overline{c} z^{-1}\right) \ =\ 1-2r*\cos( \theta ) z^{-1} +r^{2} z^{-2}$
-\end{center}
-
-\subparagraph {Pentru:\ $\displaystyle \theta \ =\ \pi /3$}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{2_1.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{2_2.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{2_3.eps}
-\end{center}
-
-Pe diagrama poli-zerouri, se observa cele doua zerouri conjugate de modul egal cu $r$
-
-\subparagraph {Pentru:\ $\displaystyle \theta \ =\ \pi /2$}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{2_4.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{2_5.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{2_6.eps}
-\end{center}
-
-Pe diagrama poli-zerouri, se observa cele doua zerouri conjugate de modul egal cu $r$
-
-\pagebreak
-\myparagraph {Problema 3}
-
-Fie filtrul autoregresiv $\displaystyle G( z) \ =\ \frac{1}{H( z)}$, cu functia de transfer:
-
-\begin{center}
-$\displaystyle G( z) \ =\ \frac{1}{\left( 1-cz^{-1}\right)\left( 1-\overline{c} z^{-1}\right) \ } =\ \frac{1}{1-2r*\cos( \theta ) z^{-1} +r^{2} z^{-2}}$
-\end{center}
-
-\subparagraph {Pentru:\ $\displaystyle \theta \ =\ \pi /3$}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{3_1.eps}
-\end{center}
-
-Se observa oglindirea graficului amplitudinii lui $G(z)$ fata de $H(z)$ in raport cu abscisa.
-
-\begin{center}
-\includegraphics[width=1\textwidth]{3_2.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{3_3.eps}
-\end{center}
-
-Se observa ``inversarea'' polilor cu a zerourilor fata de problema anterioara.	
-
-\subparagraph {Pentru:\ $\displaystyle \theta \ =\ \pi /3 \ si \ | G( 0)| _{dB} \ =\ 0$}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{3_3b.eps}
-\end{center}
-
-\pagebreak
-\subparagraph {Pentru:\ $\displaystyle \theta \ =\ \pi /2$}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{3_4.eps}
-\end{center}
-
-Se observa oglindirea graficului amplitudinii lui $G(z)$ fata de $H(z)$ in raport cu abscisa.
-
-\begin{center}
-\includegraphics[width=1\textwidth]{3_5.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{3_6.eps}
-\end{center}
-
-Se observa ``inversarea'' polilor cu a zerourilor fata de problema anterioara.	
-
-\subparagraph {Pentru:\ $\displaystyle \theta \ =\ \pi /2 \ si \ | G( 0)| _{dB} \ =\ 0$}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{3_6b.eps}
-\end{center}
-
-
-\pagebreak
-\myparagraph {Problema 4}
-
-{Fie filtrul stabil $\displaystyle H( s) \ =\ \frac{s^{2} -0.85s+0.85}{s^{2} +0.65s+0.65}$ cu 2 poli si 2 zerouri.}
-
-\subparagraph {Raspunsul filtrului in frecventa}
-\begin{center}
-\includegraphics[width=1\textwidth]{4_1.eps}
-\end{center}
-
-\subparagraph {Diagrama poli-zerouri}
-\begin{center}
-\includegraphics[width=1\textwidth]{4_2.eps}
-\end{center}
-
-Se observa cei doi poli si cele doua zerouri conjugate cu modulul mare mare ca 0.7
-
-\pagebreak
-\paragraph {Problema 5}
-
-\subparagraph {Suma de sinusoide filtrata}
-\begin{center}
-\includegraphics[width=1\textwidth]{5a_1.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5a_2.eps}
-\end{center}
-\pagebreak
-
-\subparagraph {Vioara}
-\begin{center}
-\includegraphics[width=1\textwidth]{5a_3.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5a_4.eps}
-\end{center}
-\pagebreak
-
-\subparagraph {Viola}
-\begin{center}
-\includegraphics[width=1\textwidth]{5a_5.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5a_6.eps}
-\end{center}
-\pagebreak
-
-\subparagraph {Clarinet}
-\begin{center}
-\includegraphics[width=1\textwidth]{5a_7.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5a_8.eps}
-\end{center}
-\pagebreak
-
-\subparagraph {Trombon}
-\begin{center}
-\includegraphics[width=1\textwidth]{5a_9.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5a_10.eps}
-\end{center}
-\pagebreak
-
-\subparagraph {Tuba}
-\begin{center}
-\includegraphics[width=1\textwidth]{5a_11.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5a_12.eps}
-\end{center}
-\pagebreak
-
-\myparagraph {Trombon filtrat (1)}
-Am aplicat filtrul: $\displaystyle H( s) \ =\ \frac{2s+1.5}{s^{2} -0.9s+0.5}$
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5b_1.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5b_2.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5b_3.eps}
-\end{center}
-\pagebreak
-
-\myparagraph {Trombon filtrat (2)}
-Am aplicat filtrul: $\displaystyle H( s) \ =\ \frac{s^{2} -1.8s+0.9}{s^{3} -3s^{2} -2.4s+0.8}$
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5b_4.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5b_5.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5b_6.eps}
-\end{center}
-\pagebreak
-
-\myparagraph {Trombon filtrat (3)}
-Am aplicat filtrul: $\displaystyle H( s) \ =\ \frac{1}{s-0.8}$
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5b_7.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5b_8.eps}
-\end{center}
-
-\begin{center}
-\includegraphics[width=1\textwidth]{5b_9.eps}
-\end{center}
-\pagebreak
+% \begin{center}
+% \includegraphics[width=1\textwidth]{1_1.eps}
+% \end{center}
 
 \end{document}
