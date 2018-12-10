@@ -8,7 +8,7 @@ loop_len = length(amp_var_u2);
 error_sys_2 = ones(loop_len);
 error_sys_4 = ones(loop_len);
 
-import java.util.*;
+j_queue = [];
 
 for i=1:loop_len
 	amp_u2 = amp_var_u2(i);
@@ -28,6 +28,8 @@ for i=1:loop_len
 	res2 = stepinfo(h2.Data, h2.Time);
 	res4 = stepinfo(h4.Data, h4.Time);
 
+	m_err = [];
+
 	for k=1:length(h4.Data)
 		if (h4.Time(k) >= res4.SettlingTime && h2.Time(k) >= res2.SettlingTime)
 			[A, B, C, D] = linmod(model_name, ...
@@ -38,6 +40,7 @@ for i=1:loop_len
 			time_at(i) = h4.Time(k);
 			state{i} = [h.Data(k) h1.Data(k) h2.Data(k) h3.Data(k) h4.Data(k)];
 
+			
 			for j=1:loop_len
 				amp_u2 = amp_var_u2(j);
 
@@ -69,6 +72,11 @@ for i=1:loop_len
 				error_sys_4(i, j) = ...
 						norm((linear_out_4 - nonlinear_out_4) ./ nonlinear_out_4);
 			end
+
+			[err_min, err_idx] = min(error_sys_2(i, :));
+			fprintf("Eroare min la j: %d => u2 = %d\n", err_idx, amp_var_u2(err_idx));
+			j_queue(i) = err_idx;
+
 			pause(.1);
 			break;
 		end
@@ -83,21 +91,27 @@ for i=1:loop_len
 	end
 end
 
-j_queue = [];
 
-for i=1:loop_len
-	for j=1:loop_len
-		keep_j = true;
+%{
+for j=1:loop_len
+	keep_j = false;
+
+	for i=1:loop_len
 		for k=1:loop_len
-			if (error_sys_2(k, j) <= error_sys_2(i, j) && k ~= i)
-				keep_j = false;
+			if (error_sys_2(i, j) <= error_sys_2(k, j) && k ~= i)
+				keep_j = true;
 			end
 		end
-		if (keep_j)
-			j_queue(end + 1) = j;
-		end
+	end
+
+	if (keep_j)
+		j_queue(end + 1) = j;
 	end
 end
+%}
+
+
+j_queue = unique(j_queue);
 
 % 
 % compute the partial linear system response
@@ -189,10 +203,13 @@ hold off;
 title(shandle2, 'y4');
 legend('original', 'linear');
 
-fun = @(i) abs(nonlinear_out_2(ceil(i)) - partial_linear_out_2(ceil(i)));
-quad(fun, ti(1), ti(end))
+fun = @(i) abs(nonlinear_out_2(int32(i)) - partial_linear_out_2(int32(i)));%abs(nonlinear_out_2(i) - partial_linear_out_2(i));
+err_2 = integral(fun, ti(1), ti(end));
 
-fun = @(i) abs(nonlinear_out_4(ceil(i)) - partial_linear_out_4(ceil(i)));
-quad(fun, ti(1), ti(end))
+fun = @(i) abs(nonlinear_out_4(int32(i)) - partial_linear_out_4(int32(i)));
+err_4 = integral(fun, ti(1), ti(end))
+
+fprintf("Erorare de urmarire y2 = %f\n", err_2);
+fprintf("Erorare de urmarire y4 = %f\n", err_4);
 
 close_system(model_name);
