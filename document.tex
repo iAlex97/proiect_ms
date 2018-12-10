@@ -20,21 +20,40 @@
 
 
 \myparagraph {Introducere}
-Simularea procesului este salvata cu versiunea MATLAB R2017a si pentru rularea ei se va folosi scriptul ``run_tema_2017.m''. Pentru a rula cu MATLAB R2018a se va folosi scriptul run_tema.m
+Simularea procesului este salvata cu versiunea MATLAB R2017a si pentru rularea ei se va folosi scriptul \textit{run\_tema\_2017.m}. Pentru a rula cu MATLAB R2018a se va folosi scriptul \textit{run\_tema.m}
 
 \myparagraph {Structura proiectului}
-Ficare subpunct are doua fisiere aferente (load_workspace_*.m si tema_comm_*.m)
-Fisierul ``animate_levels.m'' este folosit dupa fiecare simulare pentru a crea o reprezentare grafica a evolutiei nivelelor rezervoarelor cu apa.
+Ficare subpunct are doua fisiere aferente (\textit{load\_workspace\_*.m} si \textit{tema\_comm\_*.m}) \\
+Fisierul \textit{animate\_levels.m} este folosit dupa fiecare simulare pentru a crea o reprezentare grafica a evolutiei nivelelor rezervoarelor cu apa.\\
+Pentru simularile repetate, animatia se poate dezactiva prin setarea flagului: $animation\_enable = 0$
 
-Consideram filtrul FIR de ordinul I:
+% Consideram filtrul FIR de ordinul I:
+% \begin{center}
+% $\displaystyle H( z) \ =\ 1-cz^{-1} ,\ c\ =re^{j\theta } ,\ \theta \in [ 0,\ \pi ]$
+% \end{center}
+
+% \subparagraph {Pentru:\ $\displaystyle \theta \ =\ \pi /3$}
+
+\myparagraph {Subpunctul a}
+Cod matlab:
+\begin{minted}{matlab}
+	
+\end{minted}
+
 \begin{center}
-$\displaystyle H( z) \ =\ 1-cz^{-1} ,\ c\ =re^{j\theta } ,\ \theta \in [ 0,\ \pi ]$
+	\begin{figure} [htbp]
+		\includegraphics[width=1\textwidth]{a_2.eps}
+		\caption{Evolutia iesirilor y2 si y4}
+	\end{figure}
 \end{center}
 
-\subparagraph {Pentru:\ $\displaystyle \theta \ =\ \pi /3$}
+\pagebreak
 
-% \begin{center}
-% \includegraphics[width=1\textwidth]{1_1.eps}
-% \end{center}
+\begin{center}
+	\begin{figure} [htbp]
+		\includegraphics[width=1\textwidth]{a_1.eps}
+		\caption{Exemplu animate levels}
+	\end{figure}
+\end{center}
 
 \end{document}
