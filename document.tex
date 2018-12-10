@@ -4,13 +4,14 @@
             footskip=.25in]{geometry}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{pdfpages}
 \usepackage{float}
 
 \graphicspath{ {./res/} }
 
 \newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
 
-\title{Modelare și Simulare\\Temă laborator\\-\\Tema 2\\Instalație hidraulică cu patru rezervoare}
+\title{Modelare si Simulare\\Tema laborator\\-\\Tema 2\\Instalatie hidraulica cu patru rezervoare}
 \date{2018\\Decembrie}
 \author{Ionescu Alexandru Cristian\\Pangratie Andrei\\333 AC}
 
@@ -93,21 +94,21 @@ Salut
 
 \begin{figure} [H]
 	\includegraphics[width=1\textwidth]{e_1.eps}
-	\caption{Evolutia iesirii h2 vs aproximarea sa liniara}
+	\caption{Graficele erorilor in functie de intrari}
 \end{figure}
 
-\myparagraph {Subpunctul f}
-\myparagraph {Subpunctul g}
-\myparagraph {Subpunctul h}
+\myparagraph {Subpunctul f, g, h}
 
 \begin{figure} [H]
 	\includegraphics[width=1\textwidth]{fgh_1.eps}
-	\caption{Evolutia iesirii h4 vs aproximarea sa liniara}
+	\caption{Evolutia iesirii h2 vs aproximarea sa liniara pe bucati}
 \end{figure}
 
 \begin{figure} [H]
 	\includegraphics[width=1\textwidth]{fgh_2.eps}
-	\caption{Evolutia iesirii h4 vs aproximarea sa liniara}
+	\caption{Evolutia iesirii h4 vs aproximarea sa liniara pe bucati}
 \end{figure}
+
+\includepdf[pages={1},lastpage={1}]{system_schema.pdf}
 
 \end{document}
