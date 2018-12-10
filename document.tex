@@ -4,7 +4,7 @@
             footskip=.25in]{geometry}
 \usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage{pdfpages}
+\usepackage{float}
 
 \graphicspath{ {./res/} }
 
@@ -41,24 +41,20 @@ Pentru simularile repetate, animatia se poate dezactiva prin setarea flagului: $
 
 \myparagraph {Subpunctul a}
 
-\begin{center}
-	\begin{figure} [htbp]
-		\includegraphics[width=1\textwidth]{a_2.eps}
-		\caption{Evolutia iesirilor y2 si y4}
-	\end{figure}
-\end{center}
+\begin{figure} [H]
+	\includegraphics[width=1\textwidth]{a_2.eps}
+	\caption{Evolutia iesirilor y2 si y4}
+\end{figure}
 
-\begin{center}
-	\begin{figure} [htbp]
-		\includegraphics[width=1\textwidth]{a_1.eps}
-		\caption{Exemplu animate levels}
-	\end{figure}
-\end{center}
+\begin{figure} [H]
+	\includegraphics[width=1\textwidth]{a_1.eps}
+	\caption{Exemplu animate levels}
+\end{figure}
 
 \myparagraph {Subpunctul b}
 Alo
 
-\begin{figure} [htbp]
+\begin{figure} [H]
 	\includegraphics[width=1\textwidth]{b_1.eps}
 	\caption{Evolutia iesirilor y2 si y4}
 \end{figure}
@@ -66,23 +62,52 @@ Alo
 \myparagraph {Subpunctul c}
 Salut
 
-\begin{center}
-	\begin{figure} [htbp]
-		\includegraphics[width=1\textwidth]{c_1.eps}
-	\end{figure}
-\end{center}
+\begin{figure} [H]
+	\includegraphics[width=1\textwidth]{c_1.eps}
+	\caption{Evolutia iesirilor y2 si y4 in functie de valorile constantelor de integrare}
+\end{figure}
 
-\begin{center}
-	\begin{figure} [htbp]
-		\includegraphics[width=1\textwidth]{c_2_1.eps}
-	\end{figure}
-\end{center}
+\begin{figure} [H]
+	\includegraphics[width=1\textwidth]{c_2_1.eps}
+	\caption{Stabilizare h2 in functie de amplitudinea intrarii}
+\end{figure}
 
-\begin{center}
-	\begin{figure} [htbp]
-		\includegraphics[width=1\textwidth]{c_2_2.eps}
-		\caption{Evolutia iesirilor y2 si y4}
-	\end{figure}
-\end{center}
+\begin{figure} [H]
+	\includegraphics[width=1\textwidth]{c_2_2.eps}
+	\caption{Stabilizare h4 in functie de amplitudinea intrarii}
+\end{figure}
+
+\myparagraph {Subpunctul d}
+
+\begin{figure} [H]
+	\includegraphics[width=1\textwidth]{d_1.eps}
+	\caption{Evolutia iesirii h2 vs aproximarea sa liniara}
+\end{figure}
+
+\begin{figure} [H]
+	\includegraphics[width=1\textwidth]{d_2.eps}
+	\caption{Evolutia iesirii h4 vs aproximarea sa liniara}
+\end{figure}
+
+\myparagraph {Subpunctul e}
+
+\begin{figure} [H]
+	\includegraphics[width=1\textwidth]{e_1.eps}
+	\caption{Evolutia iesirii h2 vs aproximarea sa liniara}
+\end{figure}
+
+\myparagraph {Subpunctul f}
+\myparagraph {Subpunctul g}
+\myparagraph {Subpunctul h}
+
+\begin{figure} [H]
+	\includegraphics[width=1\textwidth]{fgh_1.eps}
+	\caption{Evolutia iesirii h4 vs aproximarea sa liniara}
+\end{figure}
+
+\begin{figure} [H]
+	\includegraphics[width=1\textwidth]{fgh_2.eps}
+	\caption{Evolutia iesirii h4 vs aproximarea sa liniara}
+\end{figure}
 
 \end{document}
