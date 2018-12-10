@@ -4,6 +4,8 @@
             footskip=.25in]{geometry}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{pdfpages}
+
 \graphicspath{ {./res/} }
 
 \newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
@@ -24,8 +26,11 @@ Simularea procesului este salvata cu versiunea MATLAB R2017a si pentru rularea e
 
 \myparagraph {Structura proiectului}
 Ficare subpunct are doua fisiere aferente (\textit{load\_workspace\_*.m} si \textit{tema\_comm\_*.m}) \\
+Pentru a rula simulari individuale se pot comenta/decomenta doua cate doua liniile respective.\\
 Fisierul \textit{animate\_levels.m} este folosit dupa fiecare simulare pentru a crea o reprezentare grafica a evolutiei nivelelor rezervoarelor cu apa.\\
 Pentru simularile repetate, animatia se poate dezactiva prin setarea flagului: $animation\_enable = 0$
+
+% \includepdf[pages=-,pagecommand={},width=\textwidth]{system_schema.pdf}
 
 % Consideram filtrul FIR de ordinul I:
 % \begin{center}
@@ -35,10 +40,6 @@ Pentru simularile repetate, animatia se poate dezactiva prin setarea flagului: $
 % \subparagraph {Pentru:\ $\displaystyle \theta \ =\ \pi /3$}
 
 \myparagraph {Subpunctul a}
-Cod matlab:
-\begin{minted}{matlab}
-	
-\end{minted}
 
 \begin{center}
 	\begin{figure} [htbp]
@@ -47,12 +48,40 @@ Cod matlab:
 	\end{figure}
 \end{center}
 
-\pagebreak
-
 \begin{center}
 	\begin{figure} [htbp]
 		\includegraphics[width=1\textwidth]{a_1.eps}
 		\caption{Exemplu animate levels}
+	\end{figure}
+\end{center}
+
+\myparagraph {Subpunctul b}
+Alo
+
+\begin{figure} [htbp]
+	\includegraphics[width=1\textwidth]{b_1.eps}
+	\caption{Evolutia iesirilor y2 si y4}
+\end{figure}
+
+\myparagraph {Subpunctul c}
+Salut
+
+\begin{center}
+	\begin{figure} [htbp]
+		\includegraphics[width=1\textwidth]{c_1.eps}
+	\end{figure}
+\end{center}
+
+\begin{center}
+	\begin{figure} [htbp]
+		\includegraphics[width=1\textwidth]{c_2_1.eps}
+	\end{figure}
+\end{center}
+
+\begin{center}
+	\begin{figure} [htbp]
+		\includegraphics[width=1\textwidth]{c_2_2.eps}
+		\caption{Evolutia iesirilor y2 si y4}
 	\end{figure}
 \end{center}
 
