@@ -8,7 +8,7 @@ loop_len = length(amp_var_u2);
 error_sys_2 = ones(loop_len);
 error_sys_4 = ones(loop_len);
 
-import java.util.*;
+j_queue = [];
 
 for i=1:loop_len
 	amp_u2 = amp_var_u2(i);
@@ -67,6 +67,11 @@ for i=1:loop_len
 				error_sys_4(i, j) = ...
 						norm((linear_out_4 - nonlinear_out_4) ./ nonlinear_out_4);
 			end
+
+			[err_min, err_idx] = min(error_sys_2(i, :));
+			fprintf("Eroare min la j: %d => u2 = %d\n", err_idx, amp_var_u2(err_idx));
+			j_queue(i) = err_idx;
+
 			pause(.1);
 			break;
 		end
@@ -81,19 +86,19 @@ for i=1:loop_len
 	end
 end
 
-for i=1:loop_len
-	for j=1:loop_len
-		keep_j = true;
-		for k=1:loop_len
-			if (error_sys_2(i, j) <= error_sys_2(k, j) && k ~= i)
-				keep_j = false;
-			end
-		end
-		if (keep_j)
-			fprintf("idx j: %d\n", j);
-			% keep_j here
-		end
-	end
-end
+% for i=1:loop_len
+% 	for j=1:loop_len
+% 		keep_j = true;
+% 		for k=1:loop_len
+% 			if (error_sys_2(i, j) <= error_sys_2(k, j) && k ~= i)
+% 				keep_j = false;
+% 			end
+% 		end
+% 		if (keep_j)
+% 			fprintf("idx j: %d\n", j);
+% 			% keep_j here
+% 		end
+% 	end
+% end
 
 close_system(model_name);
